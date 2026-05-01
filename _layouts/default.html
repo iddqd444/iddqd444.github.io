@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,27 +11,115 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1E3A8A',
-                        accent: '#0EA5E9',
-                        light: '#F1F5F9'
-                    }
+                        primary: {
+                            50: '#EFF6FF',
+                            100: '#DBEAFE',
+                            200: '#BFDBFE',
+                            300: '#93C5FD',
+                            400: '#60A5FA',
+                            500: '#3B82F6',
+                            600: '#2563EB',
+                            700: '#1D4ED8',
+                            800: '#1E40AF',
+                            900: '#1E3A8A',
+                        },
+                        accent: {
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                        },
+                        success: '#10B981',
+                        warning: '#F59E0B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        heading: ['Merriweather', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3 { font-family: 'Merriweather', serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Merriweather', serif; }
         .burger-menu { display: none; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #3B82F6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2563EB; }
+        
         @media (max-width: 768px) {
-            .nav-links { display: none; width: 100%; position: absolute; top: 64px; left: 0; bg-white; flex-direction: column; padding: 1rem; background: white; shadow: lg; }
+            .nav-links { 
+                display: none; 
+                width: 100%; 
+                position: absolute; 
+                top: 64px; 
+                left: 0; 
+                flex-direction: column; 
+                padding: 1rem; 
+                background: white; 
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            }
             .nav-links.active { display: flex; }
             .burger-menu { display: block; }
         }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #3B82F6 0%, #0EA5E9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        /* Button glow effect */
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .btn-glow:hover::before {
+            left: 100%;
+        }
     </style>
 </head>
-<body class="bg-light text-gray-800 flex flex-col min-h-screen">
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 text-gray-800 flex flex-col min-h-screen">
     {% include header.html %}
     <main class="flex-grow">
         {{ content }}
