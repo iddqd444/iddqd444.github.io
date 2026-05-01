@@ -1,0 +1,16 @@
+﻿---
+title: Отзывы
+description: Мнения учеников и родителей.
+---
+<div class="container mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold text-center text-primary mb-12">{{ page.title }}</h1>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {% for item in site.data.testimonials %}
+        <div class="bg-white p-6 rounded-xl shadow border-l-4 border-accent">
+            <p class="text-gray-600 italic mb-4">"{{ item.text }}"</p>
+            <div class="font-bold text-primary">{{ item.author }}</div>
+            <div class="text-sm text-green-600">{{ item.result }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

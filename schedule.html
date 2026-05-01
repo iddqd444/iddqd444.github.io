@@ -1,0 +1,42 @@
+﻿---
+title: Расписание и запись
+description: Запись на пробное занятие и свободные слоты.
+---
+<div class="container mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold text-center text-primary mb-8">{{ page.title }}</h1>
+    <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <!-- Calendar Placeholder -->
+        <div class="bg-white p-6 rounded-xl shadow">
+            <h2 class="text-2xl font-bold mb-4">Свободные окна</h2>
+            <div class="bg-gray-100 h-64 rounded flex items-center justify-center text-gray-500 mb-4">
+                Здесь будет Google Calendar
+            </div>
+            <p class="text-sm text-gray-500">Напишите мне, чтобы забронировать время.</p>
+        </div>
+
+        <!-- Form -->
+        <div class="bg-white p-6 rounded-xl shadow">
+            <h2 class="text-2xl font-bold mb-4">Записаться</h2>
+            <!-- Замените YOUR_FORM_ID на ваш ID от Formspree -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Ваше имя</label>
+                    <input type="text" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:border-accent focus:ring-accent">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Телефон / Email</label>
+                    <input type="text" name="contact" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border focus:border-accent focus:ring-accent">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Предмет</label>
+                    <select name="subject" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border">
+                        <option>Физика</option>
+                        <option>Математика</option>
+                        <option>Информатика</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-accent text-white font-bold py-3 rounded hover:bg-blue-400 transition">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+</div>
