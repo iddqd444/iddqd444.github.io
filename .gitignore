@@ -1,3 +1,16 @@
-Nothing should be ignored in this case, as the modified files are all HTML template and content files (`.html`) which are source files for a website, and there are no build artifacts, dependencies, or temporary files in the changes.
-
-Output: (empty - no content)
+```
+# Compiled and build artifacts
+*.class
+*.jar
+*.zip
+# Dependencies
+target/
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+# Environment
+.env
+.env.local
+.env.*
+```
